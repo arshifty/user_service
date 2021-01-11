@@ -1,0 +1,97 @@
+
+<% include partials/_header %>
+
+
+
+		<div > 
+		<h3> See all active services </h3>
+            <table width="50%">
+                <thead>
+                <tr>
+                  
+                    <td>Service Name</td>
+                    <td>Charge</td>
+                   
+                    <td> Status</td>							
+									
+                    
+                </tr>
+                </thead>
+                <tbody>
+                <% if (data) { %>
+                    <% for(var i = 0; i < data.length; i++) { %>
+                        <tr>
+						
+							<% if(data[i].is_active == '1'){ %>   
+                            
+							 
+                            <td><%= data[i].service_name %></td>
+                            <td><%= data[i].charge %></td>
+                          
+							
+							<td> Active  </td>
+     
+    
+							<% } %>   
+                          	
+
+							
+							
+							
+						
+
+							
+                        </tr>
+                    <% } %>
+                <% } %>
+                </tbody>
+            </table>
+        </div>
+
+		<br><br>
+
+		<div >
+		<h3> See all services </h3>
+            <table width="50%">
+                <thead>
+                <tr>
+                    <td>Serial</td>
+                    <td>Service Name</td>
+                    <td>Charge</td>
+                    <td>is Active value</td>	
+                    <td> Status</td>							
+									
+                    
+                </tr>
+                </thead>
+                <tbody>
+                <% if (data) { %>
+                    <% for(var i = 0; i < data.length; i++) { %>
+                        <tr>
+                            <td><%= (i + 1) %></td>
+                            <td><%= data[i].service_name %></td>
+                            <td><%= data[i].charge %></td>
+                            <td><%= data[i].is_active %></td>		
+
+							
+							
+							
+							<% if(data[i].is_active == '0'){ %>   
+                            <td>in active  </td>
+     
+    
+							<% } else{ %>  
+								 <td> active  </td>	
+							<% } %>
+
+							
+                        </tr>
+                    <% } %>
+                <% } %>
+                </tbody>
+            </table>
+        </div>
+		
+		
+		
+		<% include partials/_footer %>

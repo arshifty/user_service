@@ -1,0 +1,135 @@
+<% include partials/_header %>
+
+   <script src= 
+"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> 
+    </script> 
+
+
+<br>
+ 
+  <div align="center">
+  
+  
+  								  <p aign="center "  style="color:red;">   Update Subscriptions </p>
+  
+  <form action="/sub_updat/<%= data.id %>" method="POST">                   
+                                     
+					
+								
+							
+						Phone : <input type="text" name="phone" value="<%= data.phone %>"   readonly autofocus> <br>	<br>						
+                        
+						Sports : <input type="text" name="sports" value="<%= data.sports %>"   id="text" >       			
+						
+						<label for="myCheck">Subscribe/Unsubscribe:</label> 
+						<input type="checkbox" id="myCheck" onclick="myFunction()">
+						
+						<script>
+							function myFunction() {
+							  var checkBox = document.getElementById("myCheck");
+							  var text = document.getElementById("text");
+							  if (checkBox.checked == true){
+								document.getElementById("text").value="on";
+							  } else {
+							document.getElementById("text").value="off";
+							  }
+							}
+							</script>
+						
+						<br><br>      
+
+						
+                       News :  <input type="text" name="news" value="<%= data.news %>" id="textnews">						 
+
+						<label for="myChecknews">Subscribe/Unsubscribe:</label> 
+						<input type="checkbox" id="myChecknews" onclick="myFunctionnews()">
+						
+						<script>
+							function myFunctionnews() {
+							  var checkBox = document.getElementById("myChecknews");
+							  var text = document.getElementById("textnews");
+							  if (checkBox.checked == true){
+								document.getElementById("textnews").value="on";
+							  } else {
+							document.getElementById("textnews").value="off";
+							  }
+							}
+							</script>
+
+
+
+
+						<br><br>
+						Health : <input type="text" name="health" value="<%= data.health %>"    id="texthealth" >                      
+						
+						<label for="myCheckhealth">Subscribe/Unsubscribe:</label> 
+						<input type="checkbox" id="myCheckhealth" onclick="myFunctionhealth()">
+						
+						<script>
+							function myFunctionhealth() {
+							  var checkBox = document.getElementById("myCheckhealth");
+							  var text = document.getElementById("texthealth");
+							  if (checkBox.checked == true){
+								document.getElementById("texthealth").value="on";
+							  } else {
+							document.getElementById("texthealth").value="off";
+							  }
+							}
+							</script>
+						
+						
+						
+						
+						<br><br>
+                      Salat :   <input type="text" name="namaz" value="<%= data.namaz %>"  id="textsalat"  >        
+
+
+                   <label for="myChecksalat">Subscribe/Unsubscribe:</label> 
+						<input type="checkbox" id="myChecksalat" onclick="myFunctionsalat()">
+						
+						<script>
+							function myFunctionsalat() {
+							  var checkBox = document.getElementById("myChecksalat");
+							  var text = document.getElementById("textsalat");
+							  if (checkBox.checked == true){
+								document.getElementById("textsalat").value="on";
+							  } else {
+							document.getElementById("textsalat").value="off";
+							  }
+							}
+							</script>
+							
+							
+							
+							   <br>  
+							  Date  : <input type="checkbox" id="my" onclick="myFunct()">  
+	                   <input type="text" name="updated_on" id="today" placeholder="click checkBox to get date" required />
+
+							<script>
+							function myFunct() {
+							  var checkBox = document.getElementById("my");
+							  var text = document.getElementById("today");
+							  if (checkBox.checked == true){
+							  
+							    var d = new Date();
+								var datestring =  d.getFullYear() + "-" +  (d.getMonth()+1) + "-" + d.getDate()  + " " + d.getHours() + ":" + d.getMinutes()+ ":" + d.getSeconds();
+								
+								document.getElementById("today").value=datestring;
+							  } 
+							}
+							</script>
+	
+						<br><br>
+                       
+						                   
+
+                      <button type="submit" > Update  </button>
+
+                    
+					
+                </form>
+				
+				  </div>
+
+
+<% include partials/_footer %>

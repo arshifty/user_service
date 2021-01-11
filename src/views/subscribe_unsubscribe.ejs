@@ -1,0 +1,63 @@
+<% include partials/_header %>
+
+
+     <b> <u> Subscribe Services </u>  </b> 
+	 <b style="color:red;"> ( register user ? <a href="/user_reg_home" class="btn btn-info">Register here </a> )  </b> <br>
+           
+  <form action="/submit_subscribe" method="POST">
+     
+	 Contact :  <input type="text" name="phone" placeholder="Registered Contact"  /> 
+	  <br>
+     Sports  : <input type="checkbox" name="sports" />
+	   <br>
+     News  : <input type="checkbox" name="news" />
+	   <br>
+     Health  : <input type="checkbox" name="health" />
+	   <br>
+     Salat :  <input type="checkbox" name="namaz" />
+	   <br>  
+
+    Date  : <input type="checkbox" id="myChecknews" onclick="myFunc()">  
+	<input type="text" name="updated_on" id="today" placeholder="click checkBox to get date" required />
+
+							<script>
+							function myFunc() {
+							  var checkBox = document.getElementById("myChecknews");
+							  var text = document.getElementById("today");
+							  if (checkBox.checked == true){
+							  
+							    var d = new Date();
+								var datestring =  d.getFullYear() + "-" +  (d.getMonth()+1) + "-" + d.getDate()  + " " + d.getHours() + ":" + d.getMinutes()+ ":" + d.getSeconds();
+								
+								document.getElementById("today").value=datestring;
+							  } 
+							}
+							</script>
+	
+
+	   <br>  
+
+				  <input type="hidden" name="is_subscribed" value="1" />
+						   <br>  	   
+						 
+     <button>Submit</button>
+ </form>
+            
+			
+			
+			
+			
+			
+			
+			<hr>
+			
+			<p> Unsubscribe services </p>
+			
+			<b>Search Registered Contact Number to unsubscribe </b>
+                <form action="/search_unsubs" method="POST">                  
+                        <input type="text" name="phone" placeholder="Enter contact" >                         
+                    <button type="submit"> Search 	   </button>
+                </form>
+
+
+<% include partials/_footer %>

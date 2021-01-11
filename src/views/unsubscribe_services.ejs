@@ -1,0 +1,52 @@
+<% include partials/_header %>
+
+<hr>
+   <div align="center"> Go To <a href="/" class="btn btn-info">Home</a> </div> 
+<hr>
+ 
+		<div >
+            <table  width="80%">
+                <thead>
+                <tr>
+				
+				
+				
+                 
+					 <td>Contact</td>
+                    <td>Sports</td>
+                    <td>News</td>
+                    <td>Health</td>					
+					<td>Salat</td>
+					
+										
+                    <td>Update</td>		
+                    <td>Delete all subscribed services</td>							
+				
+                </tr>
+                </thead>
+                <tbody>
+                <% if (data) { %>
+                    <% for(var i = 0; i < data.length; i++) { %>
+                        <tr>
+                           
+                            <td><%= data[i].phone %></td>
+                            <td><%= data[i].sports %></td>
+                            <td><%= data[i].news %></td>							
+							<td><%= data[i].health %></td>
+                            <td><%= data[i].namaz %></td>
+                           
+                            <td>    <a href="/update_subscription/<%= data[i].id %>" class="btn btn-info">Edit Subscription</a>   </td>
+							<td>  <a href="/delete_subscription/<%= data[i].id %>" class="btn btn-danger">Delete</a>  </td>
+							
+                        </tr>
+                    <% } %>
+                <% } %>
+                </tbody>
+            </table>
+        </div>
+		
+		<br>
+		
+
+
+<% include partials/_footer %>
